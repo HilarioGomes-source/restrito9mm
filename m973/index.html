@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funcionamento da Pistola Imbel M973</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+    }
+    .video-container {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      display: none;
+    }
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .list-container {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    .list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+    }
+    .controls button {
+      padding: 10px 20px;
+      margin: 5px 0;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #444;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      width: 100%;
+    }
+    .controls button:hover {
+      background-color: #555;
+    }
+    .list-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <video id="video1" src="video1.mp4" controls></video>
+    <video id="video2" src="video2.mp4" controls></video>
+    <video id="video3" src="video3.mp4" controls></video>
+    <video id="video4" src="video4.mp4" controls></video>
+    <video id="video5" src="video5.mp4" controls></video>
+    <video id="video6" src="video6.mp4" controls></video>
+    <video id="video7" src="video7.mp4" controls></video>
+    <video id="video8" src="video8.mp4" controls></video>
+    <video id="video9" src="video9.mp4" controls></video>
+    <video id="video10" src="video10.mp4" controls></video>
+    <video id="video11" src="video11.mp4" controls></video>
+  </div>
+  <div class="controls">
+    <div class="list-container">
+      <div class="list">
+        <div class="list-title">Recuo do ferrolho</div>
+        <button onclick="playVideo('video1')">Destrancamento</button>
+        <button onclick="playVideo('video2')">Abertura</button>
+        <button onclick="playVideo('video3')">Extração 2º Fase</button>
+        <button onclick="playVideo('video4')">Ejeção</button>
+      </div>
+      <div class="list">
+        <div class="list-title">Avanço do ferrolho</div>
+        <button onclick="playVideo('video5')">Apresentação</button>
+        <button onclick="playVideo('video6')">Fechamento</button>
+        <button onclick="playVideo('video7')">Trancamento</button>
+        <button onclick="playVideo('video8')">Extração 1º Fase</button>
+      </div>
+      <div class="list">
+        <div class="list-title">Funcionamento</div>
+        <button onclick="playVideo('video9')">Engatilhamento</button>
+        <button onclick="playVideo('video10')">Desengatilhamento</button>
+        <button onclick="playVideo('video11')">Completo</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function playVideo(videoId) {
+      const videos = document.querySelectorAll('video');
+      videos.forEach(video => {
+        video.pause();
+        video.currentTime = 0;
+        video.style.display = 'none';
+      });
+      const selectedVideo = document.getElementById(videoId);
+      selectedVideo.style.display = 'block';
+      selectedVideo.play();
+    }
+  </script>
+</body>
+</html>
